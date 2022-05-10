@@ -2,7 +2,7 @@
 
 class Program {
     static void Main(string[] args) {
-        Card visa = new Visa("Emil Ulykkeby");
+        Card visa = new Visa("Anders Andersen");
 
         Console.WriteLine(
             $"Owner: {visa.OwnerName}\n" +
