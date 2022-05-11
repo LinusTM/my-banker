@@ -4,7 +4,7 @@ internal class Visa : Card, ICard {
     private static int limit = 20000;
     private static DateTime expiryDate = DateTime.Now.AddYears(5);
 
-    internal Visa(string ownerName) : base(ownerName, "Visa", expiryDate, limit, true) { }
+    internal Visa(string ownerName) : base(ownerName, "Visa", expiryDate, limit) { }
     
     override public string GenerateCardNum() {
         string cardNumber = "4";

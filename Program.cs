@@ -17,8 +17,7 @@ class Program {
                 $"Accunt number: {card.AccNumber}\n" +
                 $"Card number: {card.CardNumber}\n" +
                 $"Expire by: {card.ExpiryDate}\n" +
-                $"Card limit: {card.Limit}\n" +
-                $"Over charge? {card.OverCharge}\n\n"
+                $"Card limit: {card.Limit}\n\n"
             );
         }
     }

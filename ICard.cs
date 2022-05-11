@@ -6,7 +6,6 @@ interface ICard {
     string CardNumber { get; }
     int Limit { get; }
     DateTime ExpiryDate { get; }
-    bool OverCharge { get; }
 
     // int Deposit(int money);
     // int Withdraw (int money);

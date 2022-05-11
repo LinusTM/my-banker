@@ -4,7 +4,7 @@ internal class Debit : Card {
     private static int limit = 0;
     private static DateTime expiryDate = DateTime.Now.AddYears(5).AddMonths(8);
 
-    internal Debit(string ownerName) : base(ownerName, "Debit", expiryDate, limit, false) {}
+    internal Debit(string ownerName) : base(ownerName, "Debit", expiryDate, limit) {}
 
     override public string GenerateCardNum() {
         string cardNumber = "2400";

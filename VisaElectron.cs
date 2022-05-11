@@ -5,7 +5,7 @@ internal class VisaElectron : Card, ICard {
     private static string[] idNumbers = {"4026", "417500", "4508", "4844", "4913", "4917"};
     private static DateTime expiryDate = DateTime.Now.AddYears(5);
 
-    internal VisaElectron(string ownerName) : base(ownerName, "Visa Electron",expiryDate, limit, false) {}
+    internal VisaElectron(string ownerName) : base(ownerName, "Visa Electron",expiryDate, limit) {}
 
     override public string GenerateCardNum() {
         string[] prefix = {"4026", "417500", "4508", "4844", "4913", "4917"};

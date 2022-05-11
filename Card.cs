@@ -31,19 +31,13 @@ internal abstract class Card : ICard {
         get => expiryDate;
     }
 
-    private bool overCharge;
-    public bool OverCharge {
-        get => overCharge;
-    }
-
-    internal Card(string ownerName, string type, DateTime expiryDate, int limit, bool overCharge) {
+    internal Card(string ownerName, string type, DateTime expiryDate, int limit) {
         this.ownerName = ownerName;
         this.type = type;
         this.accNumber = GenerateAccNum();
         this.cardNumber = GenerateCardNum();
         this.expiryDate = expiryDate;
         this.limit = limit;
-        this.overCharge = overCharge;
     }
 
     // Generates a account number
