@@ -6,6 +6,11 @@ internal abstract class Card : ICard {
         get => ownerName;
     }
 
+    private string type;
+    public string Type {
+        get => type;
+    }
+
     private string accNumber;
     public string AccNumber {
         get => accNumber;
@@ -26,17 +31,26 @@ internal abstract class Card : ICard {
         get => expiryDate;
     }
 
-    internal Card(string ownerName, DateTime expiryDate, int limit) {
-        this.accNumber = GenerateAccNum();
-        this.cardNumber = GenerateCardNum();
-        this.ownerName = ownerName;
-        this.expiryDate = expiryDate;
-        this.limit = limit;
+    private bool overCharge;
+    public bool OverCharge {
+        get => overCharge;
     }
 
+    internal Card(string ownerName, string type, DateTime expiryDate, int limit, bool overCharge) {
+        this.ownerName = ownerName;
+        this.type = type;
+        this.accNumber = GenerateAccNum();
+        this.cardNumber = GenerateCardNum();
+        this.expiryDate = expiryDate;
+        this.limit = limit;
+        this.overCharge = overCharge;
+    }
+
+    // Generates a account number
     protected string GenerateAccNum() {
         string accNumber = "3520";
 
+        // Adds onto the banks prefix, until it hits 14
         while(accNumber.Length < 14) {
             accNumber += Random.Shared.Next(0, 10).ToString();
         }

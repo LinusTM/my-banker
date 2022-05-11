@@ -3,13 +3,23 @@
 class Program {
     static void Main(string[] args) {
         Card visa = new Visa("Anders Andersen");
-
-        Console.WriteLine(
-            $"Owner: {visa.OwnerName}\n" +
-            $"Accunt number: {visa.AccNumber}\n" +
-            $"Card number: {visa.CardNumber}\n" +
-            $"Expire by:{visa.ExpiryDate}\n" +
-            $"Card limit: {visa.Limit}"
-        );
+        Card visaElectron = new VisaElectron("James Jamesen");
+        Card mastercard = new Mastercard("Emil Emilsen");
+        Card maestro = new Maestro("Jorgen Jorgensen");
+        Card debit = new Debit("J. Ulykkeby");
+        
+        Card[] cards = new Card[] { visa, visaElectron, mastercard, maestro, debit };
+        
+        foreach(Card card in cards) {
+            Console.WriteLine(
+                $"Type: {card.Type}\n" +
+                $"Owner: {card.OwnerName}\n" +
+                $"Accunt number: {card.AccNumber}\n" +
+                $"Card number: {card.CardNumber}\n" +
+                $"Expire by: {card.ExpiryDate}\n" +
+                $"Card limit: {card.Limit}\n" +
+                $"Over charge? {card.OverCharge}\n\n"
+            );
+        }
     }
 }
