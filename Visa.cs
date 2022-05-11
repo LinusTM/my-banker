@@ -1,9 +1,18 @@
 namespace my_banker;
 
-internal class Visa : Card {
+internal class Visa : Card, ICard {
     private static int limit = 20000;
-    private static string[] idNumbers = {"4"};
     private static DateTime expiryDate = DateTime.Now.AddYears(5);
 
-    internal Visa(string ownerName) : base(ownerName, expiryDate, limit, idNumbers) {}
+    internal Visa(string ownerName) : base(ownerName, expiryDate, limit) { }
+    
+    override public string GenerateCardNum() {
+        string cardNumber = "4";
+
+        while(cardNumber.Length < 16) {
+            cardNumber += Random.Shared.Next(0, 10).ToString();
+        }
+
+        return cardNumber;
+    }
 }

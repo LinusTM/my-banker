@@ -1,6 +1,6 @@
 namespace my_banker;
 
-internal abstract class Card {
+internal abstract class Card : ICard {
     private string ownerName;
     public string OwnerName {
         get => ownerName;
@@ -11,7 +11,7 @@ internal abstract class Card {
         get => accNumber;
     }
 
-    private string cardNumber;
+    protected string cardNumber;
     public string CardNumber {
         get => cardNumber;
     }
@@ -26,26 +26,26 @@ internal abstract class Card {
         get => expiryDate;
     }
 
-    private string[] idNumbers;
-
-    internal Card(string ownerName, DateTime expiryDate, int limit, string[] idNumbers) {
-        this.idNumbers = idNumbers;
-
-        this.cardNumber = GenerateCardNumber(idNumbers);
+    internal Card(string ownerName, DateTime expiryDate, int limit) {
         this.accNumber = GenerateAccNum();
+        this.cardNumber = GenerateCardNum();
         this.ownerName = ownerName;
         this.expiryDate = expiryDate;
         this.limit = limit;
     }
 
     protected string GenerateAccNum() {
-        string accNumber = Random.Shared.Next(10000, 100000).ToString();
-        return "3520" + accNumber + accNumber;
+        string accNumber = "3520";
+
+        while(accNumber.Length < 14) {
+            accNumber += Random.Shared.Next(0, 10).ToString();
+        }
+
+        return accNumber;
     }
 
-    protected string GenerateCardNumber(string[] idNumber) {
-
-        return cardNumber;
+    public virtual string GenerateCardNum() {
+        return "No card value found";
     }
 }
 
